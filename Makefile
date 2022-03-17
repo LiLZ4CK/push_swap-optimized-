@@ -6,7 +6,7 @@
 #    By: zwalad <zwalad@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/08 16:43:16 by zwalad            #+#    #+#              #
-#    Updated: 2022/03/15 21:29:04 by zwalad           ###   ########.fr        #
+#    Updated: 2022/03/16 15:17:58 by zwalad           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,6 @@ SRC := main.c \
 		los_b_hermanos.c \
 		lst_utils.c \
 		lil_libft.c \
-		lil_libft2.c \
 		lil_main.c \
 		ps_utils.c \
 		ft_printf/ft_printf.c \
@@ -37,8 +36,7 @@ SRC := main.c \
 all: $(NAME)
 
 $(NAME): $(SRC)
-	$(CC) $(SRC) -o $(NAME) $(FLAGS) -g -fsanitize=address
-
+	$(CC) $(SRC) -o $(NAME) $(FLAGS) 
 clean:
 	$(RM) $(OBJ)
 

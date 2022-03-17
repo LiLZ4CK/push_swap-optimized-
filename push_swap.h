@@ -6,7 +6,7 @@
 /*   By: zwalad <zwalad@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 16:22:47 by zwalad            #+#    #+#             */
-/*   Updated: 2022/03/15 21:39:04 by zwalad           ###   ########.fr       */
+/*   Updated: 2022/03/16 18:57:47 by zwalad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ typedef struct t_stacks
 {
 	t_swap	*a;
 	t_swap	*b;
-	t_swap	*free_a;
-	t_swap	*free_b;
 	int		*tab;
 	int		arg;
 }t_stacks;
@@ -54,8 +52,6 @@ t_stacks	*rotate_ab(t_stacks *p);
 t_swap		*r_rotate_a(t_swap *a);
 t_swap		*r_rotate_b(t_swap *b);
 t_stacks	*r_rotate_ab(t_stacks *p);
-char		*ps_strdup(char *s1);
-char		**ps_split(char *s, char c);
 t_swap		*sub_three(t_swap	*a);
 t_stacks	*stack_init(t_stacks *p, char *argv[], int argc);
 int			le_index(int i, t_swap *a);
@@ -66,12 +62,12 @@ t_stacks	*push_five(t_stacks *p, int i);
 int			check_sorted(t_stacks *p);
 void		herror(int i);
 int			ps_isdigit(char c);
-char		*ps_substr(char *s, unsigned int start, size_t len);
 int			le_len(t_swap *a);
 t_stacks	*sort_tab(t_stacks *p);
 void		ps_looot(t_stacks *p);
 t_stacks	*get_lower(t_stacks *p, int low);
 t_swap		*get_highest(t_swap *b, int i);
 t_stacks	*ps_indixing(t_stacks *p);
+void		ps_lstdelone(t_swap *x, int i);
 
 #endif

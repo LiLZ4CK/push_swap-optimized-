@@ -6,7 +6,7 @@
 /*   By: zwalad <zwalad@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 22:30:17 by zwalad            #+#    #+#             */
-/*   Updated: 2022/03/15 21:43:09 by zwalad           ###   ########.fr       */
+/*   Updated: 2022/03/16 23:41:26 by zwalad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ t_stacks	*push_five2(t_stacks *p)
 	k = le_len(p->a);
 	if (j <= (k / 2))
 	{
-		while (j > 1)
+		while (j >= 1)
 		{
 			p->a = rotate_a(p->a);
 			j--;
@@ -103,6 +103,8 @@ int	main(int argc, char *argv[])
 
 	i = 1;
 	p.arg = argc - 1;
+	if (argc == 2)
+		herror(1);
 	check_dup(argv);
 	p = *stack_init(&p, argv, argc);
 	while (argv[i] != NULL)
@@ -114,5 +116,11 @@ int	main(int argc, char *argv[])
 		p = *push_five(&p, argc);
 	if (argc > 6)
 		ps_looot(&p);
+	/* while (p.a != NULL)
+	{
+		printf("p.a = %d\n", p.a->stack);
+		p.a = p.a->next;
+	} */
+	system("leaks push_swap");
 	return (0);
 }

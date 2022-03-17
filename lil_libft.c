@@ -6,7 +6,7 @@
 /*   By: zwalad <zwalad@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 14:58:36 by zwalad            #+#    #+#             */
-/*   Updated: 2022/03/15 19:36:47 by zwalad           ###   ########.fr       */
+/*   Updated: 2022/03/16 15:44:55 by zwalad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ int	ps_isdigit(char c)
 
 int	ps_atoi(char *str)
 {
-	int	i;
-	int	j;
-	int	n;
-	int	c;
+	int		i;
+	int		j;
+	long	n;
+	long	c;
 
 	i = 0;
 	j = 1;
@@ -62,45 +62,21 @@ int	ps_atoi(char *str)
 	return (c);
 }
 
-char	*ps_strdup(char *s1)
+void	ps_lstdelone(t_swap *x, int i)
 {
-	char	*s2;
-	size_t	i;
+	t_swap	*tmp;
 
-	i = 0;
-	s2 = (char *)malloc(ps_strlen(s1) + 1);
-	if (!s1 || !s2)
-		return (NULL);
-	while (s1[i] != '\0')
+	tmp = x;
+	if (i == 1)
 	{
-		s2[i] = s1[i];
-		i++;
+		tmp = NULL;
+		free(tmp);
 	}
-	s2[i] = '\0';
-	return (s2);
-}
-
-char	*ps_substr(char *s, unsigned int start, size_t len)
-{
-	char			*str;
-	size_t			i;
-	unsigned int	t;
-
-	i = 0;
-	if (!s)
-		return (NULL);
-	t = ps_strlen(s);
-	if (len > t + 1)
-		len = t + 1;
-	str = malloc(len + 1);
-	if (str == NULL)
-		return (NULL);
-	while (len > 0 && start + i <= t && s[start + i])
+	if (i == 2)
 	{
-		str[i] = s[start + i];
-		i++;
-		len --;
+		while (tmp->next == NULL)
+			tmp = tmp->next;
+		tmp = NULL;
+		free(tmp);
 	}
-	str[i] = '\0';
-	return (str);
 }
