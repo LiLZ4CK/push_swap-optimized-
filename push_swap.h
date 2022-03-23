@@ -6,7 +6,7 @@
 /*   By: zwalad <zwalad@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 16:22:47 by zwalad            #+#    #+#             */
-/*   Updated: 2022/03/16 18:57:47 by zwalad           ###   ########.fr       */
+/*   Updated: 2022/03/23 21:40:38 by zwalad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,9 @@ typedef struct t_stacks
 	int		arg;
 }t_stacks;
 
-int			check_dup2(char *str1, char *str2);
 size_t		ps_strlen(char *s);
 int			ps_atoi(char *str);
-void		check_dup(char *argv[]);
+void		check_dup(char *argv[], int j);
 void		ps_lstadd_back(t_swap *lst, t_swap *new);
 int			ps_lstsize(t_swap *lst);
 t_swap		*ps_lstlast(t_swap *lst);
@@ -53,13 +52,14 @@ t_swap		*r_rotate_a(t_swap *a);
 t_swap		*r_rotate_b(t_swap *b);
 t_stacks	*r_rotate_ab(t_stacks *p);
 t_swap		*sub_three(t_swap	*a);
-t_stacks	*stack_init(t_stacks *p, char *argv[], int argc);
+t_stacks	*stack_init(t_stacks *p, char *argv[], int argc, int i);
 int			le_index(int i, t_swap *a);
+char		**ps_split(char *s, char c);
 int			low_find(t_swap *a);
 t_swap		*push_three(t_swap *a);
 t_stacks	*push_five2(t_stacks *p);
 t_stacks	*push_five(t_stacks *p, int i);
-int			check_sorted(t_stacks *p);
+int			check_sorted(t_stacks *p, int argc);
 void		herror(int i);
 int			ps_isdigit(char c);
 int			le_len(t_swap *a);
@@ -68,6 +68,8 @@ void		ps_looot(t_stacks *p);
 t_stacks	*get_lower(t_stacks *p, int low);
 t_swap		*get_highest(t_swap *b, int i);
 t_stacks	*ps_indixing(t_stacks *p);
-void		ps_lstdelone(t_swap *x, int i);
+t_stacks	*fix_zsh(char **av, t_stacks *p);
+char		*ps_substr(char *s, unsigned int start, size_t len);
+t_stacks	*mini_main(t_stacks *p, int argc, char *argv[]);
 
 #endif

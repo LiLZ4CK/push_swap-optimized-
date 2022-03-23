@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lil_libft2.c                                       :+:      :+:    :+:   */
+/*   bonus_libft2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zwalad <zwalad@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 17:49:40 by zwalad            #+#    #+#             */
-/*   Updated: 2022/03/17 18:23:46 by zwalad           ###   ########.fr       */
+/*   Updated: 2022/03/22 21:46:27 by zwalad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include    "push_swap.h"
+#include    "push_bonus.h"
 
-char	*ps_substr(char *s, unsigned int start, size_t len)
+char	*bonus_substr(char *s, unsigned int start, size_t len)
 {
 	char			*str;
 	size_t			i;
@@ -21,7 +21,7 @@ char	*ps_substr(char *s, unsigned int start, size_t len)
 	i = 0;
 	if (!s)
 		return (NULL);
-	t = ps_strlen(s);
+	t = bonus_strlen(s);
 	if (len > t + 1)
 		len = t + 1;
 	str = malloc(len + 1);
@@ -84,7 +84,7 @@ static void	alloc(char **sp, char *s, char c, int wnbr)
 			index = i;
 		while (s[i] != c && s[i] != '\0')
 			i++;
-		sp [j] = ps_substr(s, index, i - index);
+		sp [j] = bonus_substr(s, index, i - index);
 		if (!sp[j])
 		{
 			ps_free(sp, j);
@@ -95,7 +95,7 @@ static void	alloc(char **sp, char *s, char c, int wnbr)
 	sp[j] = NULL;
 }
 
-char	**ps_split(char *s, char c)
+char	**bonus_split(char *s, char c)
 {
 	char	**str;
 	int		wnbr;

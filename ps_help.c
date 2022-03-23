@@ -6,7 +6,7 @@
 /*   By: zwalad <zwalad@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 18:52:38 by zwalad            #+#    #+#             */
-/*   Updated: 2022/03/16 15:58:06 by zwalad           ###   ########.fr       */
+/*   Updated: 2022/03/23 16:13:20 by zwalad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,4 +100,32 @@ t_swap	*get_highest(t_swap *b, int i)
 		}
 	}
 	return (b);
+}
+
+t_stacks	*fix_zsh(char *argv[], t_stacks *p)
+{
+	int		i;
+	char	**av;
+	t_swap	*tmp;
+
+	i = 0;
+	av = ps_split(argv[1], ' ');
+	while (av[i] != NULL)
+		i++;
+	if (av[0] == NULL)
+		herror(1);
+	check_dup(av, 0);
+	p = stack_init(p, av, (i + 1), 0);
+	p->arg = i;
+	i = 0;
+	tmp = p->a;
+	while (av[i] != NULL)
+		ps_lstadd_back(p->a, ps_lstnew(ps_atoi(av[i++])));
+	p->a = p->a->next;
+	free(tmp);
+	i = 0;
+	while (av[i] != NULL)
+		free(av[i++]);
+	free(av);
+	return (p);
 }
